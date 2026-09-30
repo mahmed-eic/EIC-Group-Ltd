@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EIC Group Ltd — Private Equity</title>
+<meta name="description" content="EIC Group Ltd is a private equity firm backing profitable UK SMEs with growth capital, turnaround expertise and a network of investors and operators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F6F1;
+    --surface:#FFFFFF;
+    --ink:#121A1F;
+    --navy:#0B2A3A;
+    --navy-2:#123548;
+    --teal:#1F6F63;
+    --gold:#C99A3B;
+    --slate:#576068;
+    --line:#E3E2D9;
+    --line-dark:rgba(255,255,255,0.14);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Newsreader',serif;font-weight:600;
+    line-height:1.14;letter-spacing:-0.01em;color:var(--navy);margin:0;
+  }
+  p{margin:0 0 1em;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,246,241,0.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px;}
+  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .brand img{height:38px;width:auto;}
+  .brand-text{font-family:'Newsreader',serif;font-weight:600;font-size:18px;color:var(--navy);letter-spacing:0.01em;}
+  nav.links{display:flex;gap:32px;font-size:14.5px;font-weight:500;}
+  nav.links a{color:var(--navy);opacity:0.82;position:relative;padding:4px 0;white-space:nowrap;}
+  nav.links a:hover{opacity:1;}
+  nav.links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;
+    background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;
+  }
+  nav.links a:hover::after{transform:scaleX(1);}
+  .cta-btn{
+    background:var(--teal);color:#fff;padding:12px 20px;border-radius:2px;
+    font-size:13.5px;font-weight:600;letter-spacing:0.02em;white-space:nowrap;
+    border:1px solid var(--teal);transition:background .2s ease,border-color .2s ease;
+  }
+  .cta-btn:hover{background:#18564D;border-color:#18564D;}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;padding:6px;}
+  .menu-toggle svg{width:24px;height:24px;stroke:var(--navy);}
+  @media(max-width:980px){
+    nav.links{display:none;}
+    .cta-btn.header-cta{display:none;}
+    .menu-toggle{display:block;}
+  }
+  #mobile-menu{display:none;flex-direction:column;padding:8px 0 20px;border-top:1px solid var(--line);}
+  #mobile-menu.open{display:flex;}
+  #mobile-menu a{padding:12px 4px;font-size:15px;font-weight:500;color:var(--navy);border-bottom:1px solid var(--line);}
+  #mobile-menu .cta-btn{margin-top:14px;text-align:center;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:72px 0 0;overflow:hidden;}
+  .hero-inner{display:grid;grid-template-columns:1fr;gap:0;}
+  .hero-copy{max-width:720px;padding-bottom:56px;}
+  .eyebrow{font-size:13.5px;font-weight:600;color:var(--teal);letter-spacing:0.03em;margin-bottom:16px;}
+  .hero h1{font-size:clamp(36px,5vw,58px);margin-bottom:22px;}
+  .hero-sub{font-size:16px;color:var(--slate);max-width:56ch;margin-bottom:30px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy);color:#fff;padding:15px 28px;border-radius:2px;
+    font-weight:600;font-size:14.5px;display:inline-block;transition:background .2s ease,transform .2s ease;
+  }
+  .btn-primary:hover{background:var(--navy-2);transform:translateY(-1px);}
+  .btn-secondary{
+    border:1px solid var(--navy);color:var(--navy);padding:14px 27px;border-radius:2px;
+    font-weight:600;font-size:14.5px;display:inline-block;transition:all .2s ease;
+  }
+  .btn-secondary:hover{background:var(--navy);color:#fff;}
+  .hero-media{width:100%;border-top:1px solid var(--line);}
+  .hero-media img{width:100%;height:clamp(260px,42vw,480px);object-fit:cover;}
+
+  .hero-copy > *{animation:fadeUp .7s ease both;}
+  .hero-copy > *:nth-child(2){animation-delay:.08s;}
+  .hero-copy > *:nth-child(3){animation-delay:.16s;}
+  .hero-copy > *:nth-child(4){animation-delay:.24s;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @media(prefers-reduced-motion:reduce){.hero-copy > *{animation:none;}}
+
+  /* ---------- Stat strip ---------- */
+  .stat-strip{background:var(--navy);color:#fff;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);}
+  .stat-cell{
+    padding:34px 28px;border-left:1px solid var(--line-dark);
+  }
+  .stat-cell:first-child{border-left:0;}
+  @media(max-width:720px){
+    .stat-row{grid-template-columns:1fr;}
+    .stat-cell{border-left:0;border-top:1px solid var(--line-dark);}
+    .stat-cell:first-child{border-top:0;}
+  }
+  .stat-cell .num{font-family:'Newsreader',serif;font-size:34px;color:var(--gold);margin-bottom:6px;}
+  .stat-cell .label{font-size:13.5px;color:rgba(255,255,255,0.72);max-width:32ch;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:92px 0;}
+  .section-head{max-width:660px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(27px,3.2vw,36px);}
+  .section-head p{color:var(--slate);margin-top:14px;font-size:15.5px;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:32px;}}
+  .about-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);}
+  .about-text p{color:var(--slate);font-size:15.5px;}
+  .about-text .quote{
+    font-family:'Newsreader',serif;font-style:italic;color:var(--navy);
+    font-size:19px;line-height:1.5;border-left:2px solid var(--gold);padding-left:18px;margin:22px 0;
+  }
+
+  /* ---------- Pillars (How EIC invest pillars) ---------- */
+  .pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:760px){.pillars-grid{grid-template-columns:1fr;}}
+  .pillar{background:var(--surface);padding:34px 32px;border-left:3px solid var(--teal);}
+  .pillar h3{font-size:19px;margin-bottom:10px;}
+  .pillar p{color:var(--slate);font-size:14.5px;margin:0;}
+
+  /* ---------- Values (alternating rows) ---------- */
+  .values{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .value-row{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:center;padding:40px 0;border-top:1px solid var(--line);}
+  .value-row:first-of-type{border-top:0;}
+  .value-row.reverse .v-media{order:2;}
+  @media(max-width:820px){
+    .value-row,.value-row.reverse{grid-template-columns:1fr;gap:20px;}
+    .value-row.reverse .v-media{order:0;}
+  }
+  .v-media img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);}
+  .v-copy .v-label{font-size:12.5px;font-weight:600;color:var(--gold);letter-spacing:0.04em;margin-bottom:10px;}
+  .v-copy h3{font-size:22px;margin-bottom:10px;}
+  .v-copy p{color:var(--slate);font-size:15px;margin:0;}
+
+  /* ---------- Invest offers ---------- */
+  .offers{display:flex;flex-direction:column;}
+  .offer{display:grid;grid-template-columns:1fr 1.4fr;gap:44px;padding:36px 0;border-top:1px solid var(--line);align-items:start;}
+  .offer:last-child{border-bottom:1px solid var(--line);}
+  @media(max-width:820px){.offer{grid-template-columns:1fr;gap:16px;}}
+  .offer img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);}
+  .offer-body h3{font-size:21px;margin-bottom:12px;}
+  .offer-body p{color:var(--slate);font-size:15px;}
+
+  /* ---------- Tools grid ---------- */
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:20px;}
+  @media(max-width:980px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.tools-grid{grid-template-columns:1fr;}}
+  .tool-card img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:16px;border:1px solid var(--line);}
+  .tool-card h3{font-size:17px;margin-bottom:8px;}
+  .tool-card p{color:var(--slate);font-size:14px;margin:0;}
+
+  /* ---------- Pull quote band ---------- */
+  .pullquote-band{background:var(--navy);color:#fff;}
+  .pullquote-band .wrap{padding:74px 32px;}
+  .pullquote-band blockquote{
+    font-family:'Newsreader',serif;font-size:clamp(22px,3vw,30px);font-weight:500;
+    line-height:1.35;margin:0 0 20px;max-width:820px;
+  }
+  .pullquote-band p.context{color:rgba(255,255,255,0.68);font-size:15px;max-width:680px;margin:0;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--surface);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:32px;}}
+  .contact-card-list{border:1px solid var(--line);}
+  .c-row{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line);gap:16px;flex-wrap:wrap;}
+  .c-row:last-child{border-bottom:0;}
+  .c-row .label{font-size:12.5px;letter-spacing:0.04em;color:var(--slate);font-weight:600;}
+  .c-row .value{font-family:'Newsreader',serif;font-size:17px;color:var(--navy);}
+  .c-row .value:hover{color:var(--teal);}
+  .social-row{display:flex;gap:14px;padding:22px 24px;}
+  .social-row a{
+    width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,background .2s ease;
+  }
+  .social-row a:hover{border-color:var(--navy);background:var(--navy);}
+  .social-row a:hover img{filter:brightness(0) invert(1);}
+  .social-row img{width:16px;height:16px;object-fit:contain;}
+  .map-frame{width:100%;aspect-ratio:4/3;border:1px solid var(--line);object-fit:cover;}
+
+  footer{background:var(--navy);border-top:1px solid var(--line-dark);padding:26px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .footer-row p{margin:0;color:rgba(255,255,255,0.5);font-size:13px;}
+  .footer-row a{color:rgba(255,255,255,0.68);font-size:13px;}
+  .footer-row a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#home" class="brand">
+      <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tqdJmqGvLrDQF3pU7QBsQcKhH31KzaRkQ1onsqDkAjV53CWufoXWRR6eBS9wfIkzH2B2eZLlSPi8rDMckKr4y__9nOhLcpS62ueCjVKiPT9mYrYC7hMmP1dzsU1HaTBFZiH7AyTX7H1RuX5SvGFVn0E-0goxymTKSdCQ69R-5JUAko85zAi5jDQ3oun9o=w16383" alt="EIC Group Ltd logo">
+      <span class="brand-text">EIC Group Ltd</span>
+    </a>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#mission">Mission &amp; Values</a>
+      <a href="#invest">How We Invest</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="https://calendly.com/eicgroup/intro" target="_blank" rel="noopener" class="cta-btn header-cta">Schedule a meeting</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="wrap">
+    <div id="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#mission">Mission &amp; Values</a>
+      <a href="#invest">How We Invest</a>
+      <a href="#contact">Contact</a>
+      <a href="https://calendly.com/eicgroup/intro" target="_blank" rel="noopener" class="cta-btn">Schedule a meeting</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home" style="padding-bottom:0;">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">PRIVATE EQUITY</div>
+        <h1>Connect to EIC, connect to growth</h1>
+        <p class="hero-sub">We play a major role in helping companies attempt unorthodox growth
+          strategies — investing across industries in both established and growth-oriented
+          businesses around the globe.</p>
+        <div class="hero-actions">
+          <a href="#invest" class="btn-primary">How EIC invests</a>
+          <a href="https://calendly.com/eicgroup/intro" target="_blank" rel="noopener" class="btn-secondary">Schedule a meeting now</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72t5Vjcs0BHRKurIqguQYd0JlDpoRM9ZEXYUSHBsiVfiWaU80vSW51qrHEl72Dvu3jCgDYJbg37o6auzkSB8g5Ta1jt-bqpTiCgC_BnGQM0IuAG8sHQLBf47vAr8O8cYqfdh4wwo8O-WX-bK4sx0c7W-NxFAOjI_PC2p15p7bIpuLoPGahYwU7jPbWVMXITm-HYGruXzN3lvbiNdvGK32pDFuJv2Hfn5ggxItW2angg=w1280" alt="EIC Group team at work">
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="wrap stat-row">
+      <div class="stat-cell"><div class="num">£2M–£300M</div><div class="label">Turnover range of the businesses EIC partners with</div></div>
+      <div class="stat-cell"><div class="num">~13%</div><div class="label">Typical net profit improvement delivered within 6 months</div></div>
+      <div class="stat-cell"><div class="num">128 City Rd</div><div class="label">London, EC1V 2NX — home of our team and network</div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="wrap about-grid">
+      <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tBL2CIAN2L0vHFiMvNv0w6CQfweu2jgajtc3H_-bxrbjlVTRhzogdiF8q44sKW51MetN_sYkm5h3PjWxUza-KjoB26NOGmaTrHKxrO7uN3hcInsF_q4pvrW49mJqrQyh9OoWPlLPYE8p4sjDbrUqlCt40hp3glEZ4n-HTkSG4awSjg-VZWLpwc4GfGnYqyLucNaIowKE985b5bLTI-kizVq79KVtRhm7eLsSyR=w1280" alt="EIC Group office">
+      <div class="about-text">
+        <div class="eyebrow">ABOUT US</div>
+        <h2 style="font-size:clamp(24px,3vw,32px);margin-bottom:16px;">Backing the businesses that are the backbone of the UK economy</h2>
+        <p>We invest across industries in both established and growth-oriented businesses
+          across the globe, specialising in providing owners and management with liquidity,
+          generational transition options, creative recapitalisation alternatives and growth
+          capital.</p>
+        <p class="quote">"We believe that attractive small businesses have significant
+          potential, and we have the means to provide capital, a strong network of resources,
+          and financial and operational expertise to support their growth."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">HOW EIC INVESTS WITH BUSINESS OWNERS</div>
+        <h2>Four principles behind every partnership</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <h3>Highly incredible investors</h3>
+          <p>The value of a business is a function of how well financial capital and
+            intellectual capital are managed by human capital.</p>
+        </div>
+        <div class="pillar">
+          <h3>Disclosure and transparency</h3>
+          <p>We build transparency and openness by collectively doing the right thing — which
+            drives results and achieves great returns.</p>
+        </div>
+        <div class="pillar">
+          <h3>Proven drivers of sustainable growth</h3>
+          <p>Our governance structure keeps manager and investor in constant, direct
+            communication throughout the life of an investment.</p>
+        </div>
+        <div class="pillar">
+          <h3>Responsible investments</h3>
+          <p>We're committed to integrating ESG practices into our investment strategies, and
+            proud of the track record that commitment has built.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VALUES -->
+  <section class="values" id="mission">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">MISSION &amp; VALUES</div>
+        <h2>Widening access, raising standards, backing people</h2>
+        <p>We seek to improve the efficiency of the sector, individually and collectively, by
+          widening access and awareness of it, assisting personal and professional development
+          through training programmes, and producing research of recognised value.</p>
+      </div>
+
+      <div class="value-row">
+        <div class="v-media"><img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vj1FiGVy6NxoWB71lc9Jye0yXXS9hXQQ3lZ6D7A6gvau8ktq1GB8Mr4f3-SiHS8Igcxf55l6hQq3DEmSZhAupbERRmKs7G9p8NfpMgm0YiutdlibJtFU1EKcX00KYlOleDn07w6QcXI9zslCp0Gn25Goq6Q5-1hRGU0gl-gbVqQSRbPHEPVVbElak5M9Lrkwt4wzR6rlPdLnAQg6MEYHX02FA8qQW0fxtFhHM7qDU=w1280" alt="Invest in relationships"></div>
+        <div class="v-copy">
+          <div class="v-label">VALUE</div>
+          <h3>Invest in relationships</h3>
+          <p>What we really do is back people. We take the time to understand those we work
+            with — our success is born of those relationships. We take a collaborative
+            approach to everything we do, starting within our own business, and expect the
+            same from our investees.</p>
+        </div>
+      </div>
+
+      <div class="value-row reverse">
+        <div class="v-media"><img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72sI5t2aLr5IdQSotAHj3aYXac004yFcszyDQB1A6GGLNkl1n9l4EBjAT9Sw-O2gfcq7d9o53Rwn8u0RRKSME8cCc_GAkkjnWSQkoSfv4vNPJHjKFJ2hRkUKhmlllbR3DxUAIKhCaqdnKcwuU2_BsdeLLA8Xzr1IvCFemG4_Aalk1YCxyoMB9Bxh520CT8xluDGpue4qd52D2-XQ5EMDIQsolP1KuR1-Hy4Besx7=w1280" alt="Aim higher"></div>
+        <div class="v-copy">
+          <div class="v-label">VALUE</div>
+          <h3>Aim higher</h3>
+          <p>We're passionate about making a difference — ensuring our investees are on the
+            right path with the right tools to reach their destination. We aim for exceptional
+            performance, always seeking to improve on what has already been achieved.</p>
+        </div>
+      </div>
+
+      <div class="value-row">
+        <div class="v-media"><img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72sAU87_ckQ00YZf7hvlHMLPm6eL7QAqpioet9rV5xRYxwFs4epZxXvnotWugQtMwqXH7QLgpRrbCWDjFxV_s6RzciqRaIzH4KuTxriQKhPJnZdg01OhDfKDtPZBfHxz_bnK3RUOLIimMUqCIAetDHLKaELe1cW2WVeZFPxq6yaby8bNuixwCBfvZo64o7qXtGWI9d6JpRPRcXIphKJ-gOS5tEHvHOKptBJIK1jx98s=w1280" alt="Think it through"></div>
+        <div class="v-copy">
+          <div class="v-label">VALUE</div>
+          <h3>Think it through</h3>
+          <p>We don't do half-baked ideas. Whether it's a quick question or a new strategic
+            initiative, we pride ourselves on a considered manner — continually taking a fresh
+            view to spot opportunities and find creative solutions.</p>
+        </div>
+      </div>
+
+      <div class="value-row reverse">
+        <div class="v-media"><img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72v5qnpoL5wkG7zvYeS7LsFFGbse7vr11RHN1c8-m8zZDPt3nrINJ8jB642LAuODIQ3S19NN1-llu5-Pm3M_7NAQv5m3k4ZIoMAxJVgQ2UPkOqBXp5uTgneFXh-no1iM8BWHQvAWAcxPX0JtKw3w7Cw-LxWJWzcYYHkFL0iXDamhr81BQ5Hc06oB-6j03oKtg8GAXmbHT3SsUTpnoyw23_y_x5AzOnUKCYtzMHLpR6Y=w1280" alt="Bold and tenacious"></div>
+        <div class="v-copy">
+          <div class="v-label">VALUE</div>
+          <h3>Bold and tenacious</h3>
+          <p>We encourage each other to be better and bolder. It's in our nature to approach
+            challenges with tenacity, and we push the management teams we work with to be more
+            ambitious and keep generating real change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW EIC INVEST -->
+  <section id="invest">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">HOW EIC INVEST</div>
+        <h2>We buy and invest in good, profitable SMEs — and back turnarounds when good companies get a little stuck</h2>
+      </div>
+
+      <div class="offers">
+        <div class="offer">
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQURX-OoJjBiUO9vkU_voDyvX8iXvbX841Zhqlzz2KVWsGGIHAly4nEh-cozcto8WQtSVi1XwL15x0sRftv5AunFLOa7Si7r4_TfZKKrjzDlzdM_9RFupYKwW-_FFSLM8vppOcXXT6u6oGVeOkhvYL0peO63Cex5mvxVdUjlOCyIJ32D2sTj9JH4MJ6xmWmX44--JncRx1kaT0Qm-H0gngkhkEt7zo-wWRCfNjwsr2M=w1280" alt="Finance or investment">
+          <div class="offer-body">
+            <h3>Finance or investment?</h3>
+            <p>EIC operates within a network of professional investors and commercial lenders.
+              We can arrange finance or investment for just about any purpose.</p>
+          </div>
+        </div>
+        <div class="offer">
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWIrHNkv9jSmxU-Rer7k68EOcBiF0pWUJCNStzEOtlA4duET4VnRJTzr7SCLSYQRdoTo_DiLNRj3nosCjrfveb555Sl8y9-Vkc5Cxhl0V5DYvqRDotxOyxgQNhfTyQoK6EL-Wcw4hn-dKPvvDnmTQGE4_1gtwuyu6E_KE1x0Yxb6Lj0AmGNL_UV6Lwb4EwAIGRbPTxwE4vWb4N6Ch-uBR7yQ2EB-wojXJACyROMuZM=w1280" alt="Selling your company">
+          <div class="offer-body">
+            <h3>Selling your company?</h3>
+            <p>Our team takes time to understand where our perspective or expertise can best
+              add value, and we focus on empowering management teams to build the best
+              business in their market — whether you're funding retirement, raising capital
+              for a new investment, bringing in fresh experience, or moving on to a new
+              challenge, we'll plan a way forward that's right for you and the business.</p>
+          </div>
+        </div>
+        <div class="offer">
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQV8aopoQ7QCls__Dnw_dtqmaxVuQ_8LulDtEwFRn2NcUJDOXBhTNZaN5to9do_JD4uveJUaq5WC2NB_zWRF53yxFbPGLXBTyYKwBAjGnd1iOvbGG-YMqGlow_qYPybzG8ZpTvQVmfuwzGCow1NdDi3nBsWPxuEatlKn0z5FYbZFPgeeAI4diA7-q_SQxS4SW5o150xXJd7fuqmzyOaNpHuUfpPnrTlz-5s0IjFL=w1280" alt="Getting your company ready for sale">
+          <div class="offer-body">
+            <h3>Getting your company ready for sale?</h3>
+            <p>You don't make money running a business — you make money when you sell it. A
+              common trap is getting caught up working in the business, not on it. We're not
+              focused on any one industry; as long as we see a viable route to success, your
+              company could be mainstream or niche and still be our starting point.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:56px;">
+        <div class="section-head" style="margin-bottom:28px;">
+          <div class="eyebrow">TOOLS AND CONTACTS, TAILOR-MADE TO YOUR REQUIREMENTS</div>
+          <h2 style="font-size:clamp(23px,2.6vw,28px);">Four ways we move the numbers that matter</h2>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUIBUWoZBp27E87t4iPgoGRAFXA_HOB3BeBAcbeWX9qKoLcFEzxI4zxQ5oFwBkz8fOo6BpDJ__Ns3nuxJFnP2z0a5NFw0tSOrTSVvNudlc9g9ukmVZKro3NjNg9lRNKlwlWl73Wjq6C6OJCd6v9G-_FgsRYNgB4S7qm0JQlG2D4u5GJfbXlUTGhv7fr=w1280" alt="Accelerating growth">
+            <h3>Accelerating growth</h3>
+            <p>Specialised marketing strategies to grow revenue, plus support acquiring
+              competitor or complementary businesses of any size.</p>
+          </div>
+          <div class="tool-card">
+            <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQX4Z8yTpukA4VuVhFVJ8tQLyEO-S4HEYW07yzwKEiHeV2F6QAg0p_8_to0kQmgQwW586zWmMbULuDJT-ULxsPnJTs0TM-27kymbpkWdViFdyBG2GDHx68OPog6eTeP_q57KkofhrzfCt3VCfScJ8Ojvhd1zPHPtfuAFzX-eybBsUgWX2IFEzfu9WrWuah0=w1280" alt="Increasing profitability">
+            <h3>Increasing profitability</h3>
+            <p>Specialist financial engineering tools that typically improve net profit by
+              around 13% within six months, for almost any SME.</p>
+          </div>
+          <div class="tool-card">
+            <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUbzJlf6-CuUuMX90S_a55dHkRvDExXvrR9xBVSOMrhQ3BYGTQ2XRrVA6Lek5Z122bFt0rZxxmea5VoU_MhLp0aCOt4j_x1ruFBFFyYuKYu5LRo1MGrYeHfzwOCgczyxjvZq7KwYGTQ7157jPJyztmj__Txov3ZiVUcFiwmUMLVLKXk1oq2ICLJD_08-aw=w1280" alt="Non-executive director services">
+            <h3>Non-exec director services</h3>
+            <p>Experienced NEDs across most sectors, on flexible contracts from as little as
+              half a day a month — invaluable knowledge for minimum outlay.</p>
+          </div>
+          <div class="tool-card">
+            <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUzHG4T_e0vS7bVV1I1DhFNRlYwuiA20lMF3QIkCYdxm-JuOD_yQPQDRt_raDnyW3l74T0RYKK1Esc5SyDbacDkDg4ZcclU6eRrX6WeN59wmVJJaRwxsQ6T47tXNX2Lwl2OhuQd1JrlJ-YW8o6WiF2XPwKMsHN-soNi46cmvU9yaFR4yhNtfUNuBxD4bi8=w1280" alt="Business turnaround">
+            <h3>Business turnaround</h3>
+            <p>Expertise in turnarounds, bailouts, restructures and managing companies out of
+              insolvency, plus creditor arrangements and debt-restructuring strategies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE / CUSTOMER ACQUISITION -->
+  <section class="pullquote-band">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold);">CUSTOMER ACQUISITION &amp; RETENTION</div>
+      <blockquote>The secret of business growth is deceptively simple: acquire more
+        customers, keep them for longer, and your sales accelerate.</blockquote>
+      <p class="context">Our dedicated, in-house customer acquisition and retention team works
+        closely with leadership teams to build efficient, data-driven acquisition engines —
+        treating marketing as a profit centre, not a cost. We focus on customer lifetime
+        value, acquisition cost and which segments generate the most value, so investees can
+        put their efforts where the return is greatest.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">CONTACT US</div>
+        <h2>Let's discuss how we can assist with your needs</h2>
+        <p>Nothing ventured, nothing gained — book a phone call, let's have a coffee together
+          and see if there's anything we can do.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-card-list">
+            <div class="c-row"><span class="label">EMAIL</span><a class="value" href="mailto:info@eicgroupltd.co.uk">info@eicgroupltd.co.uk</a></div>
+            <div class="c-row"><span class="label">ADDRESS</span><span class="value">128 City Road, London EC1V 2NX</span></div>
+            <div class="c-row"><span class="label">CALENDLY</span><a class="value" href="https://calendly.com/eicgroup/intro" target="_blank" rel="noopener">Schedule a meeting now</a></div>
+            <div class="social-row">
+              <a href="https://twitter.com/eicgroupltd" target="_blank" rel="noopener" aria-label="EIC Group on X / Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B2A3A" stroke-width="2"><path d="M4 4l16 16M20 4L4 20"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/eic-group-ltd" target="_blank" rel="noopener" aria-label="EIC Group on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#0B2A3A"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.3c0-1.26-.02-2.9-1.76-2.9-1.76 0-2.03 1.37-2.03 2.8V21H9z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/eicgroupltd" target="_blank" rel="noopener" aria-label="EIC Group on Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#0B2A3A"><path d="M13 22v-8h2.7l.4-3H13V9.1c0-.87.24-1.46 1.5-1.46H16V5.1C15.7 5.06 14.7 5 13.5 5 11 5 9.3 6.49 9.3 9.22V11H6.6v3H9.3v8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <img class="map-frame" src="https://lh3.googleusercontent.com/sitesv/AG8ngQW6-mmRlzQmevLC7169mvO5D85jAdvFSi-YcMRRa94R5D5Re3QQ1I6Ibs3zCgHIeIFbIVcteW8BcE08BIx0bsawbA-QVwnmrfozWF3ZuGgzYd46J_JYqu0_dAkzLzHXAifYorF_fmbHOOz_MiziqWqfD6QWEo8LbWOaqzgrutJhWr8yW6M8DpZCkuiJKtIuagoqzv9DUbcXS2i_1-3W3X2hXTdDf_nj2dhBxXP4lks=w1280" alt="128 City Road, London">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© Copyright 2026 EIC Group Ltd. All rights reserved.</p>
+    <a href="https://www.eicgroupltd.co.uk/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+</body>
+</html>
